@@ -413,6 +413,7 @@
 	,stop = function(){
 		clearTimeout(za);
 		sm.running=false;
+		$('#start').text('启动');
 	}
 	,pav = {
 		模式设定:[
@@ -455,7 +456,7 @@
 				<p><button data-option="y8" data-operate="num">本钱大于多少后开始一站到底:<span></span></button></p>\
 			</div>').appendTo(document.body)
 	,cc = $('<div class="wg"><style>.wg{text-align:right}.wg button{width:42px;height:22px;margin-right:4px}</style></div>').appendTo(document.body)
-	,cmd1 = $('<button>停止</button>').appendTo(cc)
+	,cmd1 = $('<button id="start">停止</button>').appendTo(cc)
 	,cmd2 = $('<button>设置</button>').appendTo(cc)
 	,getValueByRel = function(el){
 		switch(el.dataset.option){
