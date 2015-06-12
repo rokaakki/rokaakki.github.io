@@ -3,6 +3,7 @@
 	,zb
 	,et = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
 	,md = 0
+	,total_income = 0
 	,nl = '\n'
 	,zc = ['color:#000000','color:#307730','color:#AAAAAA','color:white; background-color:#77A8F3','color:white; background-color:#0055CC','color:white; background-color:#B03939']
 	,sout = function(inf,sty){if(!av.是否在控制台输出信息){sout=function(){};return}console.info('%c'+inf,zc[~~sty])}
@@ -250,6 +251,9 @@
 		deck:function(){
 			switch(sm.deck){
 				case 0:
+					if(total_income>at.模式设定[md].total_income)
+						stop();
+						return;
 					if(new Date().getTime()>=zb){
 						pgo();
 						return;
@@ -294,6 +298,7 @@
 					}else if(check.canstart()){
 						sm.timeout=0;
 						sout('失败',3);
+						total_income-=100;
 						sm.deck=0;
 						uo.deck();
 					}else{
@@ -342,6 +347,7 @@
 							sm.doubletimes=0;
 							sm.doubleup=0;
 							uo.sleep(uo.deck);
+							total_income+=cm;
 							return;
 						}
 						if(ai.yon()){
@@ -354,6 +360,7 @@
 							sout('收入'+_,5);
 							sm.doubleup=0;
 							sm.doubletimes=0;
+							total_income+=_;
 							uo.sleep(uo.deck);
 						}
 					}else if(check.canstart()){
@@ -362,12 +369,14 @@
 						rsamp2(2);
 						if(check.issinglecard()){
 							sout('Holy shit!双倍失败!出现的卡片是:'+read.doub(1),4);
+							total_income-=100;
 							st.累计双倍赌错次数++;
 						}else if((sm.lastchoice=='HIGH' && read.doub(1).点数 <= read.doub(2).点数) || (sm.lastchoice!='HIGH' && read.doub(1).点数 >= read.doub(2).点数)){
 							sout('Oh my god!达到回合上限',4);
 							var _=read.bet();
 							gsay('我早就看到是这个结局了，像我这种天才少女怎么可能会有控制不了的概率呢？哦呵呵呵呵～'+nl+'薛定谔自豪地挺了挺胸。虽然她没有。','切！薛定谔在角落里嘟囔了一句。');
 							sout('收入'+_,5);
+							total_income+=_;
 							st.累计双倍赌对次数++;
 						}else{
 							sout('Holy shit!双倍失败!出现的卡片是:'+read.doub(2),4);
@@ -413,13 +422,14 @@
 				赌双倍谨慎状态下遇到这些点数就不要继续:[7,8,9],
 				赌双倍连续获胜几回合后停止:12,
 				赌双倍筹码达到多少后停止:200000,
+				total_income:3000000,
 				允许一站到底:true,
 				本钱大于多少后开始一站到底:50000,
 				样本收集多少份才允许一站到底:30,
 				点击动作延迟几秒:1.5,
 				随机增加的延迟秒数:1,
 				自动值守不超过几小时:5,
-				自动值守停止后休息几小时再继续值守:0,
+				自动值守停止后休息几小时再继续值守:2,
 				随机增加的休息小时数:0
 			}
 		],
@@ -436,7 +446,7 @@
 				<p><button data-option="y2" data-operate="num">连续获胜几回合后进入谨慎状态:</button></p>\
 				<p><span data-option="y3" data-operate="winning_bar">赢筹码达到多少后进入谨慎状态:</span><input style="width:50px" id="winning_bar"/></p>\
 				<p><button data-option="y4" data-operate="arr">谨慎状态下遇到这些点数就不要继续:<span></span></button></p>\
-				<p><button data-option="y5" data-operate="num">连续获胜几回合后停止:<span></span></button></p>\
+				<p><span>总收入增加多少后停止:</span><input style="width:70px" id="total_income" /></p>\
 				<p><span data-option="y6" data-operate="total_bar">筹码达到多少后停止:</span><input style="width:70px" id="total_bar"/></p>\
 				<p><button data-option="y7" data-operate="tof">允许一站到底:<span></span></button></p>\
 				<p><button data-option="y8" data-operate="num">本钱大于多少后开始一站到底:<span></span></button></p>\
@@ -515,15 +525,22 @@
 		var value=Number($( this ).val());
 		value=value==NaN?0:value;
 		if(value>0)
-		setValueByRel({dataset:{option:'y3'}},value);
-		sout(getValueByRel({dataset:{option:'y3'}}));
+		av.模式设定[md].赌双倍赢筹码达到多少后进入谨慎状态=value;
+		sout(getValueByRel(av.模式设定[md].赌双倍赢筹码达到多少后进入谨慎状态);
 	});
 	$('#total_bar').on('input',function(){
 		var value=Number($( this ).val());
 		value=value==NaN?0:value;
 		if(value>0)
-		setValueByRel({dataset:{option:'y6'}},value);
-		sout(getValueByRel({dataset:{option:'y6'}}));
+		av.模式设定[md].赌双倍筹码达到多少后停止=value;
+		sout(getValueByRel(av.模式设定[md].赌双倍筹码达到多少后停止);
+	});
+	$('#total_income').on('input',function(){
+		var value=Number($( this ).val());
+		value=value==NaN?0:value;
+		if(value>0)
+		av.模式设定[md].total_income=value;
+		sout(getValueByRel(av.模式设定[md].total_income);
 	});
 	return '进入'+av.模式设定[md].模式名;
 })();
