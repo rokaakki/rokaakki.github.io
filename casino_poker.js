@@ -358,10 +358,11 @@
 						}else{
 							var _=read.bet();
 							act.tapno();
-							sout('收入'+_,5);
+							total_income+=_;
+							sout('收入'+total_income,5);
 							sm.doubleup=0;
 							sm.doubletimes=0;
-							total_income+=_;
+							
 							uo.sleep(uo.deck);
 						}
 					}else if(check.canstart()){
@@ -376,8 +377,9 @@
 							sout('Oh my god!达到回合上限',4);
 							var _=read.bet();
 							gsay('我早就看到是这个结局了，像我这种天才少女怎么可能会有控制不了的概率呢？哦呵呵呵呵～'+nl+'薛定谔自豪地挺了挺胸。虽然她没有。','切！薛定谔在角落里嘟囔了一句。');
-							sout('收入'+_,5);
 							total_income+=_;
+							sout('收入'+total_income,5);
+							
 							st.累计双倍赌对次数++;
 						}else{
 							sout('Holy shit!双倍失败!出现的卡片是:'+read.doub(2),4);
