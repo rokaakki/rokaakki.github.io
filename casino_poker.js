@@ -494,8 +494,8 @@
 	cmd2.on(et,function(){
 		pw.toggle();
 	});
-	$('#winning_bar').val(getValueByRel('y2'));
-	$('#total_bar').val(getValueByRel('y6'));
+	$('#winning_bar').val(getValueByRel({dataset:{option:'y2'}}));
+	$('#total_bar').val(getValueByRel({dataset:{option:'y6'}}));
 	pw.find('button').on(et,function(){
 		var el = this;
 		var v = getValueByRel(el);
