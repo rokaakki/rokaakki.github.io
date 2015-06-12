@@ -526,7 +526,7 @@
 		value=value==NaN?0:value;
 		if(value>0)
 		av.模式设定[md].赌双倍赢筹码达到多少后进入谨慎状态=value;
-		sout(getValueByRel(av.模式设定[md].赌双倍赢筹码达到多少后进入谨慎状态);
+		sout(av.模式设定[md].赌双倍赢筹码达到多少后进入谨慎状态);
 	});
 	$('#total_bar').on('input',function(){
 		var value=Number($( this ).val());
@@ -540,7 +540,7 @@
 		value=value==NaN?0:value;
 		if(value>0)
 		av.模式设定[md].total_income=value;
-		sout(getValueByRel(av.模式设定[md].total_income);
+		sout(av.模式设定[md].total_income);
 	});
 	return '进入'+av.模式设定[md].模式名;
 })();
