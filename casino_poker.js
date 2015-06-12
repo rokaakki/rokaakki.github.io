@@ -434,10 +434,10 @@
 				<style>.pw{position:absolute;left:0;top:0;z-index:100;background-color:white;padding:20px}</style>\
 				<p><button data-option="y1" data-operate="arr">遇到这些点数就不要继续:<span></span></button></p>\
 				<p><button data-option="y2" data-operate="num">连续获胜几回合后进入谨慎状态:</button></p>\
-				<p><button id="winning_btn" data-option="y3" data-operate="winning_bar">赢筹码达到多少后进入谨慎状态:</button><input style="width:50px" id="winning_bar"/></p>\
+				<p><span data-option="y3" data-operate="winning_bar">赢筹码达到多少后进入谨慎状态:</span><input style="width:50px" id="winning_bar"/></p>\
 				<p><button data-option="y4" data-operate="arr">谨慎状态下遇到这些点数就不要继续:<span></span></button></p>\
 				<p><button data-option="y5" data-operate="num">连续获胜几回合后停止:<span></span></button></p>\
-				<p><button id="total_btn" data-option="y6" data-operate="total_bar">筹码达到多少后停止:</button><input style="width:70px" id="total_bar"/></p>\
+				<p><span data-option="y6" data-operate="total_bar">筹码达到多少后停止:</span><input style="width:70px" id="total_bar"/></p>\
 				<p><button data-option="y7" data-operate="tof">允许一站到底:<span></span></button></p>\
 				<p><button data-option="y8" data-operate="num">本钱大于多少后开始一站到底:<span></span></button></p>\
 			</div>').appendTo(document.body)
@@ -511,15 +511,15 @@
 		var v = getValueByRel(el);
 		$('span',el).text(v);
 	});
-	$('#winning_btn').click(function(){
-		var value=Number($('#winning_bar').val());
+	$('#winning_bar').change(function(){
+		var value=Number($( this ).val());
 		value=value==NaN?0:value;
 		if(value>0)
 		setValueByRel({dataset:{option:'y3'}},value);
 		sout(getValueByRel({dataset:{option:'y3'}}));
 	});
-	$('#total_btn').click(function(){
-		var value=Number($('#total_bar').val());
+	$('#total_bar').change(function(){
+		var value=Number($( this ).val());
 		value=value==NaN?0:value;
 		if(value>0)
 		setValueByRel({dataset:{option:'y6'}},value);
