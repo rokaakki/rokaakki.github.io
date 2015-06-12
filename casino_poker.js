@@ -251,9 +251,10 @@
 		deck:function(){
 			switch(sm.deck){
 				case 0:
-					if(total_income>av.模式设定[md].total_income)
+					if(total_income>av.模式设定[md].total_income){
 						stop();
 						return;
+					}
 					if(new Date().getTime()>=zb){
 						pgo();
 						return;
