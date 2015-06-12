@@ -516,14 +516,14 @@
 		value=value==NaN?0:value;
 		if(value>0)
 		setValueByRel({dataset:{option:'y3'}},value);
-		console.log(getValueByRel({dataset:{option:'y3'}}));
+		sout(getValueByRel({dataset:{option:'y3'}}));
 	});
 	$('#total_btn').click(function(){
 		var value=Number($('#total_bar').val());
 		value=value==NaN?0:value;
 		if(value>0)
 		setValueByRel({dataset:{option:'y6'}},value);
-		console.log(getValueByRel({dataset:{option:'y6'}}));
+		sout(getValueByRel({dataset:{option:'y6'}}));
 	});
 	return '进入'+av.模式设定[md].模式名;
 })();
