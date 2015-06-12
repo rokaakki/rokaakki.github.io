@@ -251,7 +251,7 @@
 		deck:function(){
 			switch(sm.deck){
 				case 0:
-					if(total_income>at.模式设定[md].total_income)
+					if(total_income>av.模式设定[md].total_income)
 						stop();
 						return;
 					if(new Date().getTime()>=zb){
@@ -506,6 +506,7 @@
 	});
 	$('#winning_bar').val(getValueByRel({dataset:{option:'y3'}}));
 	$('#total_bar').val(getValueByRel({dataset:{option:'y6'}}));
+	$('#total_income').val(av.模式设定[md].total_income);
 	pw.find('button').on(et,function(){
 		var el = this;
 		var v = getValueByRel(el);
