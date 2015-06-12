@@ -533,7 +533,7 @@
 		value=value==NaN?0:value;
 		if(value>0)
 		av.模式设定[md].赌双倍筹码达到多少后停止=value;
-		sout(getValueByRel(av.模式设定[md].赌双倍筹码达到多少后停止);
+		sout(av.模式设定[md].赌双倍筹码达到多少后停止);
 	});
 	$('#total_income').on('input',function(){
 		var value=Number($( this ).val());
