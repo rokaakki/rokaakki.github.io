@@ -511,14 +511,14 @@
 		var v = getValueByRel(el);
 		$('span',el).text(v);
 	});
-	$('#winning_bar').change(function(){
+	$('#winning_bar').on('input',function(){
 		var value=Number($( this ).val());
 		value=value==NaN?0:value;
 		if(value>0)
 		setValueByRel({dataset:{option:'y3'}},value);
 		sout(getValueByRel({dataset:{option:'y3'}}));
 	});
-	$('#total_bar').change(function(){
+	$('#total_bar').on('input',function(){
 		var value=Number($( this ).val());
 		value=value==NaN?0:value;
 		if(value>0)
