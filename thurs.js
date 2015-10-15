@@ -7,23 +7,23 @@
 					setTimeout(next,slt*1000);
 		},
 		next:function(){
-			if($(".prt-use-button").find(".btn-use-full")){
+			if($(".prt-use-button").find(".btn-use-full").length){
 				$(".prt-use-button").find(".btn-use-full").trigger("tap");
-			}else if($("div[data-quest-id='400091']")){
+			}else if($("div[data-quest-id='400091']").length){
 				$("div[data-quest-id='400091']").trigger("tap");
-			}else if($(".lis-supporter").eq(5)){
+			}else if($(".lis-supporter").eq(5).length){
 				$(".lis-supporter").eq(5).trigger("tap");
-			}else if($(".se-quest-start")){
+			}else if($(".se-quest-start").length){
 				$(".se-quest-start").trigger("tap");
-			}else if($('.btn-attack-start.display-on')){
+			}else if($('.btn-attack-start.display-on').length){
 				$('.btn-attack-start.display-on').trigger('tap');
-			}else if($('.btn-result:visible')){
+			}else if($('.btn-result:visible').length){
 				$('.btn-result:visible').trigger('tap');
-			}else if($(".pop-usual.pop-exp.pop-show").find(".btn-usual-ok")){
+			}else if($(".pop-usual.pop-exp.pop-show").find(".btn-usual-ok").length){
 				$(".pop-usual.pop-exp.pop-show").find(".btn-usual-ok").trigger("tap");
-			}else if($(".prt-button-area").find(".btn-control")){
+			}else if($(".prt-button-area").find(".btn-control").length){
 				$(".prt-button-area").find(".btn-control").trigger("tap");
-			}else if($(".pop-friend-request").find(".btn-usual-cancel")){
+			}else if($(".pop-friend-request").find(".btn-usual-cancel").length){
 				$(".pop-friend-request").find(".btn-usual-cancel").trigger("tap");
 			}
 			fn.sleep(fn.next);
