@@ -17,7 +17,7 @@
 			}else if($(".se-quest-start").length){
 				$(".se-quest-start").trigger("tap");
 				battle3=false;
-			}else if($(".prt-battle-num").find(".num-info3").length){
+			}else if($(".prt-battle-num").find(".num-info3").length>1){
 				if(!battle3){
 					$(".prt-ability-list").find(".ability-character-num-1-4").trigger("tap");
 					battle3=true;
