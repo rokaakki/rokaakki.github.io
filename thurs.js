@@ -22,7 +22,11 @@
 					$(".prt-ability-list").find(".ability-character-num-1-4").trigger("tap");
 					battle3=true;
 				}else{
-					$('.btn-attack-start.display-on').trigger('tap');
+					if($('.btn-attack-start.display-on').length){
+						$('.btn-attack-start.display-on').trigger('tap');
+					}else{
+						$('.btn-result:visible').trigger('tap');
+					}
 				}
 			}else if($('.btn-attack-start.display-on').length){
 				$('.btn-attack-start.display-on').trigger('tap');
