@@ -31,7 +31,7 @@
 	},et = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
 	,cc = $('<div class="wg"><style>.wg{position:absolute;z-index:250001;top:2px;left:2px}.wg button{width:42px;height:22px;margin-right:4px}</style></div>').appendTo(document.body)
 	,cmd = $('<button style="width:52px">start/stop</button>').appendTo(cc);
-	cmd1.on(et,function(){
+	cmd.on(et,function(){
 		start=!start;
 		if(start==true){
 			fn.next();
