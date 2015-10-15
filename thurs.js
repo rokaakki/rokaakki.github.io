@@ -1,5 +1,6 @@
 (function(){
 	var start = true;
+	var battle3 = false;
 	var fn = {
 		sleep:function(next){
 				var slt=1.5+Math.random();
@@ -15,6 +16,14 @@
 				$(".lis-supporter").eq(5).trigger("tap");
 			}else if($(".se-quest-start").length){
 				$(".se-quest-start").trigger("tap");
+				battle3=false;
+			}else if($(".prt-battle-num").find(".num-info3").length){
+				if(!battle3){
+					$(".prt-ability-list").find(".ability-character-num-1-4").trigger("tap");
+					battle3=true;
+				}else{
+					$('.btn-attack-start.display-on').trigger('tap');
+				}
 			}else if($('.btn-attack-start.display-on').length){
 				$('.btn-attack-start.display-on').trigger('tap');
 			}else if($('.btn-result:visible').length){
@@ -35,6 +44,9 @@
 		start=!start;
 		if(start==true){
 			fn.next();
+			cmd.text("stop");
+		}else{
+			cmd.text("start");
 		}
 	});
 	fn.next();
