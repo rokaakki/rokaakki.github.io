@@ -1,8 +1,8 @@
 (function(){
 	var start = true;
 	var battle = localStorage.getItem("battle")?true:false;
-	var questNo = 0;
-	var episode = 2;
+	var questNo = localStorage.getItem("questNo")?parseInt(localStorage.getItem("questNo")):0;
+	var episode = localStorage.getItem("episode")?parseInt(localStorage.getItem("episode")):2;
 
 	var fn = {
 		sleep:function(next){
@@ -71,13 +71,17 @@
 	input2.val(episode);
 	input1.change(function(){
 		var newVal = parseInt(input1.val());
-		if(newVal>-1&&newVal<5)
+		if(newVal>-1&&newVal<5){
 			questNo = newVal;
+			localStorage.setItem("questNo",questNo);
+		}
 	});
 	input2.change(function(){
 		var newVal = parseInt(input2.val());
-		if(newVal>-1&&newVal<4)
+		if(newVal>-1&&newVal<4){
 			episode = newVal;
+			localStorage.setItem("episode",episode);
+		}
 	});
 	cmd.on(et,function(){
 		if(!(/quest/i.test(location.hash)||/raid\//i.test(location.hash)||/result\//i.test(location.hash)))
