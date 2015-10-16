@@ -36,6 +36,8 @@
 					$(".lis-supporter").eq(5).trigger("tap");
 				}else if($(".cnt-quest-command").find(".btn-command-forward:visible").length){
 					$(".cnt-quest-command").find(".btn-command-forward:visible").trigger("tap");
+				}else if($(".prt-lead-link").find("div[data-location-href='quest']").length){
+					$(".prt-lead-link").find("div[data-location-href='quest']").trigger("tap")
 				}
 				fn.sleep(fn.next);
 			}else if(/raid\//i.test(location.hash)&&battle){
