@@ -19,6 +19,8 @@
 					$(".prt-popup-body").find(".btn-cleard-episode").eq(episode).trigger("tap");
 				}else if($(".prt-use-button").find(".btn-use-full").length){
 					$(".prt-use-button").find(".btn-use-full").trigger("tap");
+				}else if($(".btn-usual-ok:visible").length){
+					$(".btn-usual-ok:visible").trigger("tap");
 				}else if($(".prt-noindex-list").find(".prt-list-contents").eq(questNo).length){
 					$(".prt-noindex-list").find(".prt-list-contents").eq(questNo).find(".btn-quest-list").trigger("tap");
 				}else if($(".lis-supporter").eq(5).length){
