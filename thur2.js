@@ -57,8 +57,7 @@
 	,cmd = $('<button style="width:52px">start</button>').appendTo(cc);
 	cmd.on(et,function(){
 		if(!(/quest\//i.test(location.hash)||/raid\//i.test(location.hash)))
-			alert("Page error!");
-			return;
+			return alert("Page error!");
 		start=!start;
 		if(start==true){
 			fn.next();
