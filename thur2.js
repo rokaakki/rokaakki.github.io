@@ -29,7 +29,7 @@
 					$(".cnt-quest-command").find(".btn-command-forward:visible").trigger("tap");
 				}else if($(".se-quest-start:visible").length){
 					battle=true;
-					localStorage.setItem("battle",true);
+					localStorage.setItem("battle","true");
 					$(".se-quest-start").trigger("tap");
 				}
 				fn.sleep(fn.next);
@@ -45,7 +45,7 @@
 					$(".pop-usual.pop-exp.pop-show").find(".btn-usual-ok").trigger("tap");
 				}else if($(".prt-button-area").find(".btn-control").length){
 					battle=false;
-					localStorage.setItem("battle",false);
+					localStorage.setItem("battle",null);
 					$(".prt-button-area").find(".btn-control").trigger("tap");
 				}
 				fn.sleep(fn.next);
