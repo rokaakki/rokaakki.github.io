@@ -14,16 +14,21 @@
 				return;
 			if(/quest\//i.test(location.hash)){
 				if($(".btn-favorite.visible").length){
+					//click favorite
 					$(".btn-favorite.visible").trigger("tap");
 				}else if($(".prt-popup-body").find(".btn-cleard-episode").eq(episode).length){
+					//click episode (higher than quest)
 					$(".prt-popup-body").find(".btn-cleard-episode").eq(episode).trigger("tap");
 				}else if($(".prt-use-button").find(".btn-use-full").length){
+					//click full ap (higher than quest)
 					$(".prt-use-button").find(".btn-use-full").trigger("tap");
 				}else if($(".se-quest-start:visible").length){
+					//start quest (higher than ok)
 					battle=true;
 					localStorage.setItem("battle","true");
 					$(".se-quest-start").trigger("tap");
 				}else if($(".btn-usual-ok:visible").length){
+					//click ok (higher than quest)
 					$(".btn-usual-ok:visible").trigger("tap");
 				}else if($(".prt-noindex-list").find(".prt-list-contents").eq(questNo).length){
 					$(".prt-noindex-list").find(".prt-list-contents").eq(questNo).find(".btn-quest-list").trigger("tap");
@@ -56,7 +61,7 @@
 		}
 	},et = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
 	,cc = $('<div class="wg"><style>.wg{position:absolute;z-index:250001;top:2px;left:2px}.wg button{width:42px;height:22px;margin-right:4px}</style></div>').appendTo(document.body)
-	,cmd = $('<button style="width:52px">start</button>').appendTo(cc);
+	,cmd = $('<button style="width:52px">stop</button>').appendTo(cc);
 	cmd.on(et,function(){
 		if(!(/quest\//i.test(location.hash)||/raid\//i.test(location.hash)))
 			return alert("Page error!");
@@ -68,5 +73,5 @@
 			cmd.text("start");
 		}
 	});
-	fn.next();
+	fn.sleep(fn.next);
 })();
