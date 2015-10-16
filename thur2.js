@@ -64,7 +64,21 @@
 		}
 	},et = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
 	,cc = $('<div class="wg"><style>.wg{position:absolute;z-index:250001;top:2px;left:2px}.wg button{width:42px;height:22px;margin-right:4px}</style></div>').appendTo(document.body)
-	,cmd = $('<button style="width:52px">stop</button>').appendTo(cc);
+	,cmd = $('<button style="width:52px">stop</button>').appendTo(cc)
+	,input1 = $('<input style="width:32px" />').appendTo(cc)
+	,input2 = $('<input style="width:32px" />').appendTo(cc);
+	input1.val(questNo);
+	input2.val(episode);
+	input1.change(function(){
+		var newVal = parseInt(input1.val());
+		if(newVal>-1&&newVal<5)
+			questNo = newVal;
+	});
+	input2.change(function(){
+		var newVal = parseInt(input2.val());
+		if(newVal>-1&&newVal<4)
+			episode = newVal;
+	});
 	cmd.on(et,function(){
 		if(!(/quest/i.test(location.hash)||/raid\//i.test(location.hash)||/result\//i.test(location.hash)))
 			return alert("Page error!");
