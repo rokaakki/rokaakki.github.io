@@ -67,5 +67,5 @@
 			cmd.text("start");
 		}
 	});
-	fn.next();
+	//fn.next();
 })();
