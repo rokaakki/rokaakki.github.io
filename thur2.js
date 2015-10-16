@@ -48,7 +48,7 @@
 					$('.btn-result:visible').trigger('tap');
 				}
 				fn.sleep(fn.next);
-			}else if(/result\//i.test(location.hash)&&battle){
+			}else if(/result\//i.test(location.hash)){
 				if($(".pop-usual.pop-exp.pop-show").find(".btn-usual-ok").length){
 					$(".pop-usual.pop-exp.pop-show").find(".btn-usual-ok").trigger("tap");
 				}else if($(".prt-button-area").find(".btn-control").length){
