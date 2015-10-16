@@ -1,7 +1,7 @@
 (function(){
 	var start = true;
 	var battle = localStorage.getItem("battle")?true:false;
-	var questNo = 1;
+	var questNo = 0;
 	var episode = 3;
 
 	var fn = {
