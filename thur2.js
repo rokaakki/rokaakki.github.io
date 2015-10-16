@@ -19,6 +19,10 @@
 					$(".prt-popup-body").find(".btn-cleard-episode").eq(episode).trigger("tap");
 				}else if($(".prt-use-button").find(".btn-use-full").length){
 					$(".prt-use-button").find(".btn-use-full").trigger("tap");
+				}else if($(".se-quest-start:visible").length){
+					battle=true;
+					localStorage.setItem("battle","true");
+					$(".se-quest-start").trigger("tap");
 				}else if($(".btn-usual-ok:visible").length){
 					$(".btn-usual-ok:visible").trigger("tap");
 				}else if($(".prt-noindex-list").find(".prt-list-contents").eq(questNo).length){
@@ -27,10 +31,6 @@
 					$(".lis-supporter").eq(5).trigger("tap");
 				}else if($(".cnt-quest-command").find(".btn-command-forward:visible").length){
 					$(".cnt-quest-command").find(".btn-command-forward:visible").trigger("tap");
-				}else if($(".se-quest-start:visible").length){
-					battle=true;
-					localStorage.setItem("battle","true");
-					$(".se-quest-start").trigger("tap");
 				}
 				fn.sleep(fn.next);
 			}else if(/raid\//i.test(location.hash)&&battle){
