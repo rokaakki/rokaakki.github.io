@@ -12,7 +12,7 @@
 		next:function(){
 			if(!start)
 				return;
-			if(/quest/i.test(location.hash)){
+			if(/quest\//i.test(location.hash)){
 				if($(".btn-favorite.visible").length){
 					$(".btn-favorite.visible").trigger("tap");
 				}else if($(".prt-popup-body").find(".btn-cleard-episode").eq(episode).length){
@@ -56,7 +56,7 @@
 	,cc = $('<div class="wg"><style>.wg{position:absolute;z-index:250001;top:2px;left:2px}.wg button{width:42px;height:22px;margin-right:4px}</style></div>').appendTo(document.body)
 	,cmd = $('<button style="width:52px">start</button>').appendTo(cc);
 	cmd.on(et,function(){
-		if(!(/quest\/extra/i.test(location.hash)||/raid\//i.test(location.hash)))
+		if(!(/quest\//i.test(location.hash)||/raid\//i.test(location.hash)))
 			alert("Page error!");
 			return;
 		start=!start;
