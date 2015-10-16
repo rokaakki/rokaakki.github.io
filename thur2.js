@@ -56,6 +56,7 @@
 					localStorage.setItem("battle",null);
 					$(".prt-button-area").find(".btn-control").trigger("tap");
 				}
+				fn.sleep(fn.next);
 			}else{
 				start=false;
 				cmd.text("start");
