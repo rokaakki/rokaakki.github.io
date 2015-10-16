@@ -31,7 +31,7 @@
 					$(".se-quest-start").trigger("tap");
 				}
 				fn.sleep(fn.next);
-			}else if(/raid\//i.test(location.hash))&&battle){
+			}else if(/raid\//i.test(location.hash)&&battle){
 				if($(".prt-battle-num").find(".num-info3").length>1){
 					$(".prt-ability-list").find(".ability-character-num-1-4").trigger("tap");
 				}
