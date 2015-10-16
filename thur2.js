@@ -38,7 +38,7 @@
 					$(".cnt-quest-command").find(".btn-command-forward:visible").trigger("tap");
 				}
 				fn.sleep(fn.next);
-			}else if((/raid\//i.test(location.hash)||/result\//i.test(location.hash))&&battle){
+			}else if(/raid\//i.test(location.hash)&&battle){
 				if($(".prt-battle-num").find(".num-info3").length>1){
 					$(".prt-ability-list").find(".ability-character-num-1-4").trigger("tap");
 				}
@@ -46,14 +46,16 @@
 					$('.btn-attack-start.display-on').trigger('tap');
 				}else if($('.btn-result:visible').length){
 					$('.btn-result:visible').trigger('tap');
-				}else if($(".pop-usual.pop-exp.pop-show").find(".btn-usual-ok").length){
+				}
+				fn.sleep(fn.next);
+			}else if(/result\//i.test(location.hash)&&battle){
+				if($(".pop-usual.pop-exp.pop-show").find(".btn-usual-ok").length){
 					$(".pop-usual.pop-exp.pop-show").find(".btn-usual-ok").trigger("tap");
 				}else if($(".prt-button-area").find(".btn-control").length){
 					battle=false;
 					localStorage.setItem("battle",null);
 					$(".prt-button-area").find(".btn-control").trigger("tap");
 				}
-				fn.sleep(fn.next);
 			}else{
 				start=false;
 				cmd.text("start");
