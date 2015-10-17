@@ -21,9 +21,9 @@
 				}else if($(".prt-popup-body").find(".btn-cleard-episode").eq(episode).length){
 					//click episode (higher than quest)
 					$(".prt-popup-body").find(".btn-cleard-episode").eq(episode).trigger("tap");
-				}else if($(".pop").find(".btn-use-item").length){
+				}else if($("#pop").find(".btn-use-item").length){
 					//click use half
-					$(".pop").find(".btn-use-item").trigger("tap");
+					$("#pop").find(".btn-use-item").trigger("tap");
 				}else if($(".prt-use-button").find(useBtn).length){
 					//click use ap (higher than quest)
 					$(".prt-use-button").find(useBtn).trigger("tap");
