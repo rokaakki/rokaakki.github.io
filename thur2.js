@@ -21,8 +21,11 @@
 				}else if($(".prt-popup-body").find(".btn-cleard-episode").eq(episode).length){
 					//click episode (higher than quest)
 					$(".prt-popup-body").find(".btn-cleard-episode").eq(episode).trigger("tap");
+				}else if($(".pop").find(".btn-use-item").length){
+					//click use half
+					$(".pop").find(".btn-use-item").trigger("tap");
 				}else if($(".prt-use-button").find(useBtn).length){
-					//click full ap (higher than quest)
+					//click use ap (higher than quest)
 					$(".prt-use-button").find(useBtn).trigger("tap");
 				}else if($(".se-quest-start:visible").length){
 					//start quest (higher than ok)
