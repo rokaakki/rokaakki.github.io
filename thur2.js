@@ -73,12 +73,12 @@
 		}
 	},et = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
 	,cc = $('<div class="wg"><style>.wg{position:absolute;z-index:250001;top:2px;left:2px}.wg button{width:42px;height:22px;margin-right:4px}</style></div>').appendTo(document.body)
-	,cmd = $('<button style="width:52px">stop</button>').appendTo(cc)
-	,cmd2 = $('<button style="width:52px">half</button>').appendTo(cc)
-	,input1 = $('<input style="width:32px" />').appendTo(cc)
-	,input2 = $('<input style="width:32px" />').appendTo(cc)
-	,input3 = $('<input style="width:32px" />').appendTo(cc)
-	,input4 = $('<input style="width:32px" />').appendTo(cc);
+	,cmd = $('<button style="width:40px">stop</button>').appendTo(cc)
+	,cmd2 = $('<button style="width:40px">half</button>').appendTo(cc)
+	,input1 = $('<input style="width:20px" />').appendTo(cc)
+	,input2 = $('<input style="width:20px" />').appendTo(cc)
+	,input3 = $('<input style="width:20px" />').appendTo(cc)
+	,input4 = $('<input style="width:20px" />').appendTo(cc);
 	input1.val((questNo+1));
 	input2.val((episode+1));
 	input3.val((support+1));
