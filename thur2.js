@@ -1,6 +1,6 @@
 (function(){
 	var start = true;
-	var useHalf = true;
+	var useHalf = localStorage.getItem("half")=="true"?true:false;
 	var battle = localStorage.getItem("battle")=="true"?true:false;
 	var questNo = localStorage.getItem("questNo")?parseInt(localStorage.getItem("questNo")):0;
 	var episode = localStorage.getItem("episode")?parseInt(localStorage.getItem("episode")):2;
@@ -106,8 +106,10 @@
 		useHalf=!useHalf;
 		if(useHalf){
 			cmd2.text("half");
+			localStorage.setItem("half","true");
 		}else{
 			cmd2.text("full");
+			localStorage.setItem("half",null);
 		}
 	});
 	fn.sleep(fn.next);
