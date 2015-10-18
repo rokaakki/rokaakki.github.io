@@ -6,6 +6,7 @@
 	var episode = localStorage.getItem("episode")?parseInt(localStorage.getItem("episode")):2;
 
 	var support = localStorage.getItem("support")?parseInt(localStorage.getItem("support")):5;
+	var supportType = localStorage.getItem("supportType")?parseInt(localStorage.getItem("supportType")):0;
 	var fn = {
 		sleep:function(next){
 				var slt=1.5+Math.random();
@@ -38,8 +39,8 @@
 					$(".btn-usual-ok:visible").trigger("tap");
 				}else if($(".prt-noindex-list").find(".prt-list-contents").eq(questNo).length){
 					$(".prt-noindex-list").find(".prt-list-contents").eq(questNo).find(".btn-quest-list").trigger("tap");
-				}else if($(".lis-supporter:visible").eq(support).length){
-					$(".lis-supporter:visible").eq(support).trigger("tap");
+				}else if($(".lis-supporter[data-attribute='"+supportType+"'").eq(support).length){
+					$(".lis-supporter[data-attribute='"+supportType+"'").eq(support).trigger("tap");
 				}else if($(".cnt-quest-command").find(".btn-command-forward:visible").length){
 					$(".cnt-quest-command").find(".btn-command-forward:visible").trigger("tap");
 				}else if($(".prt-lead-link:visible").find("div[data-location-href='quest']").length){
@@ -76,10 +77,12 @@
 	,cmd2 = $('<button style="width:52px">half</button>').appendTo(cc)
 	,input1 = $('<input style="width:32px" />').appendTo(cc)
 	,input2 = $('<input style="width:32px" />').appendTo(cc)
-	,input3 = $('<input style="width:32px" />').appendTo(cc);
+	,input3 = $('<input style="width:32px" />').appendTo(cc)
+	,input4 = $('<input style="width:32px" />').appendTo(cc);
 	input1.val((questNo+1));
 	input2.val((episode+1));
 	input3.val((support+1));
+	input3.val((supportType+1));
 	input1.change(function(){
 		var newVal = parseInt(input1.val());
 		if(newVal>0&&newVal<6){
@@ -99,6 +102,13 @@
 		if(newVal>0&&newVal<5){
 			support = newVal-1;
 			localStorage.setItem("support",support);
+		}
+	});
+	input4.change(function(){
+		var newVal = parseInt(input4.val());
+		if(newVal>-1&&newVal<7){
+			supportType = newVal;
+			localStorage.setItem("supportType",support);
 		}
 	});
 	cmd.on(et,function(){
