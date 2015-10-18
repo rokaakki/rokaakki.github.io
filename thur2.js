@@ -74,7 +74,6 @@
 	},et = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
 	,cc = $('<div class="wg"><style>.wg{position:absolute;z-index:250001;top:2px;left:2px;} \
 	 .wg button{margin-right:4px;opacity:0.6} \
-	 .wg button:hover{opacity:1} \
 	 .wg input{opacity:0.6} \
 	 .wg input:focus{opacity:1}</style></div>').appendTo(document.body)
 	,cmd = $('<button style="width:45px;">stop</button>').appendTo(cc)
