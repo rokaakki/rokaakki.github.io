@@ -75,7 +75,7 @@
 	,cmd = $('<button style="width:52px">stop</button>').appendTo(cc)
 	,cmd2 = $('<button style="width:52px">half</button>').appendTo(cc)
 	,input1 = $('<input style="width:32px" />').appendTo(cc)
-	,input2 = $('<input style="width:32px" />').appendTo(cc);
+	,input2 = $('<input style="width:32px" />').appendTo(cc)
 	,input3 = $('<input style="width:32px" />').appendTo(cc);
 	input1.val((questNo+1));
 	input2.val((episode+1));
