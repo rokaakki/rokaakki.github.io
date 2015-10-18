@@ -82,7 +82,7 @@
 	input1.val((questNo+1));
 	input2.val((episode+1));
 	input3.val((support+1));
-	input3.val((supportType+1));
+	input4.val(supportType);
 	input1.change(function(){
 		var newVal = parseInt(input1.val());
 		if(newVal>0&&newVal<6){
