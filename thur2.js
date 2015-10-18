@@ -102,7 +102,7 @@
 	});
 	input3.change(function(){
 		var newVal = parseInt(input3.val());
-		if(newVal>0&&newVal<5){
+		if(newVal>0&&newVal<7){
 			support = newVal-1;
 			localStorage.setItem("support",support);
 		}
