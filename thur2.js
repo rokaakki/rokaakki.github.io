@@ -108,7 +108,7 @@
 		var newVal = parseInt(input4.val());
 		if(newVal>-1&&newVal<7){
 			supportType = newVal;
-			localStorage.setItem("supportType",support);
+			localStorage.setItem("supportType",supportType);
 		}
 	});
 	cmd.on(et,function(){
