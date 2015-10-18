@@ -19,15 +19,15 @@
 				if($(".btn-favorite.visible").length){
 					//click favorite
 					$(".btn-favorite.visible").trigger("tap");
-				}else if($(".prt-popup-body").find(".btn-cleard-episode").eq(episode).length){
+				}else if($(".prt-popup-body").find(".btn-cleard-episode:visible").eq(episode).length){
 					//click episode (higher than quest)
-					$(".prt-popup-body").find(".btn-cleard-episode").eq(episode).trigger("tap");
-				}else if($("#pop").find(".btn-use-item").length){
+					$(".prt-popup-body").find(".btn-cleard-episode:visible").eq(episode).trigger("tap");
+				}else if($("#pop").find(".btn-use-item:visible").length){
 					//click use half
-					$("#pop").find(".btn-use-item").trigger("tap");
-				}else if($(".prt-use-button").find(useBtn).length){
+					$("#pop").find(".btn-use-item:visible").trigger("tap");
+				}else if($(".prt-use-button:visible").find(useBtn).length){
 					//click use ap (higher than quest)
-					$(".prt-use-button").find(useBtn).trigger("tap");
+					$(".prt-use-button:visible").find(useBtn).trigger("tap");
 				}else if($(".se-quest-start:visible").length){
 					//start quest (higher than ok)
 					battle=true;
@@ -38,12 +38,12 @@
 					$(".btn-usual-ok:visible").trigger("tap");
 				}else if($(".prt-noindex-list").find(".prt-list-contents").eq(questNo).length){
 					$(".prt-noindex-list").find(".prt-list-contents").eq(questNo).find(".btn-quest-list").trigger("tap");
-				}else if($(".lis-supporter").eq(support).length){
-					$(".lis-supporter").eq(support).trigger("tap");
+				}else if($(".lis-supporter:visible").eq(support).length){
+					$(".lis-supporter:visible").eq(support).trigger("tap");
 				}else if($(".cnt-quest-command").find(".btn-command-forward:visible").length){
 					$(".cnt-quest-command").find(".btn-command-forward:visible").trigger("tap");
-				}else if($(".prt-lead-link").find("div[data-location-href='quest']").length){
-					$(".prt-lead-link").find("div[data-location-href='quest']").trigger("tap")
+				}else if($(".prt-lead-link:visible").find("div[data-location-href='quest']").length){
+					$(".prt-lead-link:visible").find("div[data-location-href='quest']").trigger("tap")
 				}
 				fn.sleep(fn.next);
 			}else if(/raid\//i.test(location.hash)&&battle){
