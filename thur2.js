@@ -5,6 +5,7 @@
 	var questNo = localStorage.getItem("questNo")?parseInt(localStorage.getItem("questNo")):0;
 	var episode = localStorage.getItem("episode")?parseInt(localStorage.getItem("episode")):2;
 
+	var support = localStorage.getItem("support")?parseInt(localStorage.getItem("support")):5;
 	var fn = {
 		sleep:function(next){
 				var slt=1.5+Math.random();
@@ -37,8 +38,8 @@
 					$(".btn-usual-ok:visible").trigger("tap");
 				}else if($(".prt-noindex-list").find(".prt-list-contents").eq(questNo).length){
 					$(".prt-noindex-list").find(".prt-list-contents").eq(questNo).find(".btn-quest-list").trigger("tap");
-				}else if($(".lis-supporter").eq(5).length){
-					$(".lis-supporter").eq(5).trigger("tap");
+				}else if($(".lis-supporter").eq(support).length){
+					$(".lis-supporter").eq(support).trigger("tap");
 				}else if($(".cnt-quest-command").find(".btn-command-forward:visible").length){
 					$(".cnt-quest-command").find(".btn-command-forward:visible").trigger("tap");
 				}else if($(".prt-lead-link").find("div[data-location-href='quest']").length){
@@ -75,8 +76,10 @@
 	,cmd2 = $('<button style="width:52px">half</button>').appendTo(cc)
 	,input1 = $('<input style="width:32px" />').appendTo(cc)
 	,input2 = $('<input style="width:32px" />').appendTo(cc);
+	,input3 = $('<input style="width:32px" />').appendTo(cc);
 	input1.val((questNo+1));
 	input2.val((episode+1));
+	input3.val((support+1));
 	input1.change(function(){
 		var newVal = parseInt(input1.val());
 		if(newVal>0&&newVal<6){
@@ -89,6 +92,13 @@
 		if(newVal>0&&newVal<5){
 			episode = newVal-1;
 			localStorage.setItem("episode",episode);
+		}
+	});
+	input3.change(function(){
+		var newVal = parseInt(input3.val());
+		if(newVal>0&&newVal<5){
+			support = newVal-1;
+			localStorage.setItem("support",support);
 		}
 	});
 	cmd.on(et,function(){
