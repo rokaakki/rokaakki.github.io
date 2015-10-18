@@ -116,6 +116,8 @@
 	});
 	if(!useHalf)
 		cmd2.text("full");
+	if(!start)
+		cmd2.text("start");
 	cmd2.on(et,function(){
 		useHalf=!useHalf;
 		if(useHalf){
