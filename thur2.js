@@ -1,5 +1,5 @@
 (function(){
-	var start = true;
+	var start = localStorage.getItem("start")=="null"?false:true;
 	var useHalf = localStorage.getItem("half")=="true"?true:false;
 	var battle = localStorage.getItem("battle")=="true"?true:false;
 	var questNo = localStorage.getItem("questNo")?parseInt(localStorage.getItem("questNo")):0;
@@ -107,8 +107,10 @@
 		start=!start;
 		if(start){
 			fn.next();
+			localStorage.setItem("start","true");
 			cmd.text("stop");
 		}else{
+			localStorage.setItem("start","null");
 			cmd.text("start");
 		}
 	});
