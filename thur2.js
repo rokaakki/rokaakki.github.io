@@ -50,6 +50,8 @@
 			}else if(/raid\//i.test(location.hash)&&battle){
 				if($(".prt-battle-num").find(".num-info3").length>1){
 					$(".prt-ability-list").find(".ability-character-num-1-4").trigger("tap");
+				}else if($(".prt-battle-num").find(".num-info1").length>1){
+					$(".prt-ability-list").find(".ability-character-num-1-4").trigger("tap");
 				}
 				if($('.btn-attack-start.display-on').length){
 					$('.btn-attack-start.display-on').trigger('tap');
