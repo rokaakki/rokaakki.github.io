@@ -11,6 +11,7 @@ var fn = {
 			$(".prt-ability-list").find(".btn-ability-available").find(".ability-character-num-1-2").trigger("tap");
 			$(".prt-ability-list").find(".btn-ability-available").find(".ability-character-num-1-3").trigger("tap");
 			$(".prt-ability-list").find(".btn-ability-available").find(".ability-character-num-1-4").trigger("tap");
+			$(".prt-ability-list").find(".btn-ability-available").find(".ability-character-num-2-1").trigger("tap");
 			if($('#pop').find('.btn-usual-cancel:visible').length){
 				$('#pop').find('.btn-usual-cancel:visible').trigger('tap');
 			}else if($('.btn-attack-start.display-on').length){
