@@ -15,8 +15,9 @@ var fn = {
 			}else if($('.btn-result:visible').length){
 				$('.btn-result:visible').trigger('tap');
 			}
-			fn.sleep(fn.next);
+			
 		}
+		fn.sleep(fn.next);
 	}
 };
 fn.sleep(fn.next);

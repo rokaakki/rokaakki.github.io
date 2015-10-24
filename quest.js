@@ -35,8 +35,8 @@ var fn = {
 			}else if($(".prt-lead-link:visible").find("div[data-location-href='quest']").length){
 				$(".prt-lead-link:visible").find("div[data-location-href='quest']").trigger("tap")
 			}
-			fn.sleep(fn.next);
 		}	
+		fn.sleep(fn.next);
 	}
 }
 fn.sleep(fn.next);
