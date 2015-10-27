@@ -7,21 +7,24 @@ var fn = {
 		if(!start)
 			return;
 		if(/raid\//i.test(location.hash)&&battle){
-			var skill = false;
-			if($(".prt-battle-num").find(".num-info3").length>1){
-				//$(".prt-ability-list").find(".ability-character-num-1-4").trigger("tap");
-				if($(".prt-ability-list").find(".btn-ability-available").length){
-					skill=true;
-					$(".prt-ability-list").find(".btn-ability-available").eq(0).trigger("tap");
+			if($('.btn-result:visible').length){
+				$('.btn-result:visible').trigger('tap');
+			}else{
+				var skill = false;
+				if($(".prt-battle-num").find(".num-info3").length>1){
+					//$(".prt-ability-list").find(".ability-character-num-1-4").trigger("tap");
+					if($(".prt-ability-list").find(".btn-ability-available").length){
+						skill=true;
+						$(".prt-ability-list").find(".btn-ability-available").eq(0).trigger("tap");
+					}
+				}
+				if(!skill){
+					if($('.btn-attack-start.display-on').length){
+						$('.btn-attack-start.display-on').trigger('tap');
+					}
 				}
 			}
-			if(!skill){
-				if($('.btn-attack-start.display-on').length){
-					$('.btn-attack-start.display-on').trigger('tap');
-				}else if($('.btn-result:visible').length){
-					$('.btn-result:visible').trigger('tap');
-				}
-			}
+			
 			
 		}
 		fn.sleep(fn.next);
