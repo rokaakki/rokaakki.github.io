@@ -1,6 +1,6 @@
 var fn = {
 	sleep:function(next){
-			var slt=1.5+Math.random();
+			var slt=1+Math.random();
 			setTimeout(next,slt*1000);
 	},
 	next:function(){
