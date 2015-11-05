@@ -12,9 +12,11 @@ var fn = {
 			}else{
 				var skill = false;
 				if($(".prt-battle-num").find(".num-info3").length>1){
-					//$(".prt-ability-list").find(".ability-character-num-1-4").trigger("tap");
-					if($(".prt-ability-list").find(".btn-ability-available").length){
-						skill=true;
+					if($(".prt-ability-list").find(".btn-ability-available").find(".ability-character-num-1-4").length){
+						$(".prt-ability-list").find(".btn-ability-available").find(".ability-character-num-1-4").trigger("tap");
+						skill = true;
+					}else if($(".prt-ability-list").find(".btn-ability-available").length){
+						skill = true;
 						$(".prt-ability-list").find(".btn-ability-available").eq(0).trigger("tap");
 					}
 				}
