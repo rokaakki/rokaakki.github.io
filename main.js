@@ -135,9 +135,9 @@ var injectMenu = function(){
 	cmd.on(et,function(){
 		start=!start;
 		if(start){
-			fn.next();
 			localStorage.setItem("start","true");
 			cmd.text("stop");
+			fn.next();
 		}else{
 			localStorage.setItem("start","null");
 			cmd.text("start");
