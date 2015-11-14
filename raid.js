@@ -8,7 +8,7 @@ var fn = {
 		if(!start)
 			return;
 		var useBtn = useHalf?'.btn-use-full.index-1':'.btn-use-full.index-0';
-		if(/event\/teamraid/i.test(location.hash)){
+		if(/event\/teamraid/i.test(location.hash)||/quest\/supporter/i.text(location.hash)){
 			if($(".prt-use-button:visible").find(useBtn).length){
 				//click use ap (higher than quest)
 				$(".prt-use-button:visible").find(useBtn).trigger("tap");
