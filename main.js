@@ -58,7 +58,10 @@ var checkLoadModule = function(){
 		createScriptLoader('quest.js');
 	}
 	else if(/raid\//i.test(location.hash)){
-		createScriptLoader('battle.js');
+		if(battleType == "normal")
+			createScriptLoader('battle.js');
+		else
+			createScriptLoader('battle_event.js');
 	}
 	else if(/raid_multi\//i.test(location.hash)){
 		createScriptLoader('battle_multi.js');
@@ -68,6 +71,8 @@ var checkLoadModule = function(){
 	}
 	else if(/event\/teamraid/i.test(location.hash)){
 		createScriptLoader('raid.js');
+	}else if(/event\/biography002/i.test(location.hash)){
+		createScriptLoader('event.js');
 	}
 	injectMenu();
 };
@@ -80,6 +85,7 @@ var injectMenu = function(){
 	 .wg input:focus{opacity:1}</style></div>').appendTo(document.body);
 	cmd = $('<button style="width:45px;">stop</button>').appendTo(cc);
 	var cmd2 = $('<button style="width:40px">half</button>').appendTo(cc);
+	var cmd3 = $('<button style="width:40px">normal</button>').appendTo(cc);
 	var input1 = $('<input style="width:20px" />').appendTo(cc);
 	var input2 = $('<input style="width:20px" />').appendTo(cc);
 	var input3 = $('<input style="width:20px" />').appendTo(cc);
@@ -116,6 +122,12 @@ var injectMenu = function(){
 			localStorage.setItem("supportType",supportType);
 		}
 	});
+	if(!useHalf)
+		cmd2.text("full");
+	if(!start)
+		cmd.text("start");
+	if(battleType=="event")
+		cmd3.text("event");
 	cmd.on(et,function(){
 		start=!start;
 		if(start){
@@ -127,10 +139,7 @@ var injectMenu = function(){
 			cmd.text("start");
 		}
 	});
-	if(!useHalf)
-		cmd2.text("full");
-	if(!start)
-		cmd.text("start");
+
 	cmd2.on(et,function(){
 		useHalf=!useHalf;
 		if(useHalf){
@@ -141,6 +150,17 @@ var injectMenu = function(){
 			localStorage.setItem("half",null);
 		}
 	});
+	cmd3.on(et,function(){
+		if(battleType=="normal"){
+			battleType="event";
+			cmd3.text("event");
+			localStorage.setItem("battleType","event");
+		}else{
+			battleType="normal";
+			cmd3.text("normal");
+			localStorage.setItem("battleType","normal");
+		}
+	});
 }
 var start = localStorage.getItem("start")=="null"?false:true;
 var useHalf = localStorage.getItem("half")=="true"?true:false;
@@ -148,4 +168,7 @@ var battle = localStorage.getItem("battle")=="true"?true:false;
 var questNo = localStorage.getItem("questNo")?parseInt(localStorage.getItem("questNo")):0;
 var episode = localStorage.getItem("episode")?parseInt(localStorage.getItem("episode")):2;
 var support = localStorage.getItem("support")?parseInt(localStorage.getItem("support")):5;
-var supportType = localStorage.getItem("supportType")?parseInt(localStorage.getItem("supportType")):0
+var supportType = localStorage.getItem("supportType")?parseInt(localStorage.getItem("supportType")):0;
+var battleType = localStorage.getItem("battleType")=="normal"?"normal":"event";
+
+var eventNo = localStorage.getItem("eventNo")?parseInt(localStorage.getItem("eventNo")):0;
