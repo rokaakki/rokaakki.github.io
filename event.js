@@ -26,8 +26,8 @@ var fn = {
 			}else if($(".btn-usual-ok:visible").length){
 				//click ok (higher than quest)
 				$(".btn-usual-ok:visible").trigger("tap");
-			}else if($(".lis-supporter[data-attribute='"+(eventNo+4)+"'").eq(support).length){
-				$(".lis-supporter[data-attribute='"+(eventNo+4)+"'").eq(support).trigger("tap");
+			}else if($(".lis-supporter[data-attribute='"+supportType+"'").eq(support).length){
+				$(".lis-supporter[data-attribute='"+supportType+"'").eq(support).trigger("tap");
 			}
 			
 		}
