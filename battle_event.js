@@ -25,7 +25,8 @@ var fn = {
 				}
 				if(!skill&&$(".prt-battle-num").find(".num-info2").length>1){
 					if($(".prt-ability-list").find(".btn-ability-available").length){
-						if($(".prt-ability-list").find(".btn-ability-available").eq(0).find('div[ability-id="711"]').length){
+						if($(".prt-ability-list").find(".btn-ability-available").eq(0).find('div[ability-id="711"]').length||
+							$(".prt-ability-list").find(".btn-ability-available").eq(0).find('div[ability-id="3014"]').length){
 							
 						}else{
 							skill = true;
