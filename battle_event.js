@@ -16,7 +16,7 @@ var fn = {
 					ability.find(".ability-character-num-1-2").trigger("tap");
 					skill = true;
 				}
-				if(!skill&&$ability.find(".ability-character-num-1-4").length){
+				if(!skill&&ability.find(".ability-character-num-1-4").length){
 					ability.find(".ability-character-num-1-4").trigger("tap");
 					skill = true;
 				}
