@@ -22,20 +22,12 @@ var fn = {
 				//start quest (higher than ok)
 				battle=true;
 				localStorage.setItem("battle","true");
-				eventNo = eventNo == 0?1:0;
-				localStorage.setItem("eventNo",eventNo);
 				$(".se-quest-start").trigger("tap");
 			}else if($(".btn-usual-ok:visible").length){
 				//click ok (higher than quest)
 				$(".btn-usual-ok:visible").trigger("tap");
-			}else if($(".prt-noindex-list").find(".prt-list-contents").eq(questNo).length){
-				$(".prt-noindex-list").find(".prt-list-contents").eq(questNo).find(".btn-quest-list").trigger("tap");
-			}else if($(".lis-supporter[data-attribute='"+supportType+"'").eq(support).length){
-				$(".lis-supporter[data-attribute='"+supportType+"'").eq(support).trigger("tap");
-			}else if($(".cnt-quest-command").find(".btn-command-forward:visible").length){
-				$(".cnt-quest-command").find(".btn-command-forward:visible").trigger("tap");
-			}else if($(".prt-lead-link:visible").find("div[data-location-href='quest']").length){
-				$(".prt-lead-link:visible").find("div[data-location-href='quest']").trigger("tap")
+			}else if($(".lis-supporter[data-attribute='"+(eventNo+4)+"'").eq(support).length){
+				$(".lis-supporter[data-attribute='"+(eventNo+4)+"'").eq(support).trigger("tap");
 			}
 			
 		}

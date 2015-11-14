@@ -86,6 +86,7 @@ var injectMenu = function(){
 	cmd = $('<button style="width:45px;">stop</button>').appendTo(cc);
 	var cmd2 = $('<button style="width:40px">half</button>').appendTo(cc);
 	var cmd3 = $('<button style="width:40px">normal</button>').appendTo(cc);
+	var cmd4 = $('<button style="width:40px">0</button>').appendTo(cc);
 	var input1 = $('<input style="width:20px" />').appendTo(cc);
 	var input2 = $('<input style="width:20px" />').appendTo(cc);
 	var input3 = $('<input style="width:20px" />').appendTo(cc);
@@ -128,6 +129,9 @@ var injectMenu = function(){
 		cmd.text("start");
 	if(battleType=="event")
 		cmd3.text("event");
+	if(eventNo){
+		cmd4.text("1");
+	}
 	cmd.on(et,function(){
 		start=!start;
 		if(start){
@@ -159,6 +163,17 @@ var injectMenu = function(){
 			battleType="normal";
 			cmd3.text("normal");
 			localStorage.setItem("battleType","normal");
+		}
+	});
+	cmd4.on(et,function(){
+		if(eventNo==0){
+			eventNo=1;
+			cmd4.text("1");
+			localStorage.setItem("eventNo","1");
+		}else{
+			eventNo=0;
+			cmd4.text("0");
+			localStorage.setItem("eventNo","0");
 		}
 	});
 }
