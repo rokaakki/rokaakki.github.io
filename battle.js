@@ -11,13 +11,19 @@ var fn = {
 				$('.btn-result:visible').trigger('tap');
 			}else{
 				var skill = false;
+				var ability = $(".prt-command-chara:not(.ability-disable)").find(".prt-ability-list").find(".btn-ability-available");
 				if($(".prt-battle-num").find(".num-info3").length>1){
-					if($(".prt-ability-list").find(".btn-ability-available").find(".ability-character-num-1-4").length){
-						$(".prt-ability-list").find(".btn-ability-available").find(".ability-character-num-1-4").trigger("tap");
+					if(!skill&&ability.find(".ability-character-num-1-4").length){
+						ability.find(".ability-character-num-1-4").trigger("tap");
 						skill = true;
-					}else if($(".prt-ability-list").find(".btn-ability-available").length){
-						skill = true;
-						$(".prt-ability-list").find(".btn-ability-available").eq(0).trigger("tap");
+					}else if(!skill&&ability.length){
+						if(ability.eq(0).find('div[ability-id="711"]').length||
+							ability.eq(0).find('div[ability-id="3014"]').length){
+							
+						}else{
+							skill = true;
+							ability.eq(0).trigger("tap");
+						}
 					}
 				}
 				if(!skill){
