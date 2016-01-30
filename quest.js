@@ -7,7 +7,7 @@ var fn = {
 	next:function(){
 		if(!start)
 			return;
-		var useBtn = 'nononononononononononoap'; 
+		var useBtn = null; 
 		if(useHalf == 'full')
 			useBtn = '.btn-use-full.index-0';
 		else if(useHalf == 'half')
@@ -19,8 +19,10 @@ var fn = {
 			}else if($(".prt-popup-body").find(".btn-cleard-episode:visible").eq(episode).length){
 				//click episode (higher than quest)
 				$(".prt-popup-body").find(".btn-cleard-episode:visible").eq(episode).trigger("tap");
-			}else if($(".prt-use-button:visible").find(useBtn).length){
+			}else if($(".prt-use-button:visible").find('.btn-use-full:visible').length){
 				//click use ap (higher than quest)
+				if(useHalf == 'none')
+					return start = false;
 				$(".prt-use-button:visible").find(useBtn).trigger("tap");
 			}else if($(".se-quest-start:visible").length){
 				//start quest (higher than ok)
