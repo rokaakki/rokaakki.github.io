@@ -123,8 +123,12 @@ var injectMenu = function(){
 			localStorage.setItem("supportType",supportType);
 		}
 	});
-	if(!useHalf)
-		cmd2.text("full");
+	if(!!useHalf)
+		cmd2.text(useHalf);
+	else{
+		useHalf = 'none';
+		cmd2.text(useHalf);
+	}
 	if(!start)
 		cmd.text("start");
 	if(battleType=="event")
@@ -145,14 +149,15 @@ var injectMenu = function(){
 	});
 
 	cmd2.on(et,function(){
-		useHalf=!useHalf;
-		if(useHalf){
-			cmd2.text("half");
-			localStorage.setItem("half","true");
+		if(useHalf=='full'){
+			useHalf = 'half';
+		}else if(useHalf=='half'){
+			useHalf = 'none';
 		}else{
-			cmd2.text("full");
-			localStorage.setItem("half",null);
+			useHalf = 'full';
 		}
+		cmd2.text(useHalf);
+		localStorage.setItem("half",useHalf);
 	});
 	cmd3.on(et,function(){
 		if(battleType=="normal"){
@@ -178,7 +183,7 @@ var injectMenu = function(){
 	});
 }
 var start = localStorage.getItem("start")=="null"?false:true;
-var useHalf = localStorage.getItem("half")=="true"?true:false;
+var useHalf = localStorage.getItem("half");
 var battle = localStorage.getItem("battle")=="true"?true:false;
 var questNo = localStorage.getItem("questNo")?parseInt(localStorage.getItem("questNo")):0;
 var episode = localStorage.getItem("episode")?parseInt(localStorage.getItem("episode")):2;

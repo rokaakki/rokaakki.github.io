@@ -7,7 +7,11 @@ var fn = {
 	next:function(){
 		if(!start)
 			return;
-		var useBtn = useHalf?'.btn-use-full.index-1':'.btn-use-full.index-0';
+		var useBtn = 'nononononononononononoap'; 
+		if(useHalf == 'full')
+			useBtn = '.btn-use-full.index-0';
+		else if(useHalf == 'half')
+			useBtn = '.btn-use-full.index-1';
 		if(/quest/i.test(location.hash)){
 			if($(".btn-favorite.visible").length){
 				//click favorite
