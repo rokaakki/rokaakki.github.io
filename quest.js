@@ -7,6 +7,10 @@ var fn = {
 	next:function(){
 		if(!start)
 			return;
+		if($(".prt-captcha-input").length){
+			start = false;
+			return;
+		}
 		var useBtn = null; 
 		if(useHalf == 'full')
 			useBtn = '.btn-use-full.index-0';
